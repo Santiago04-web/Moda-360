@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://moda360.online/sitemap.xml

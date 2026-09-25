@@ -1,0 +1,199 @@
+/* ==========================================================================
+   MODA 360 - Corporate Identity & Premium Styling
+   Design System: Luxury Minimalist Fashion / Black & Gold Editorial
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-primary: #0a0a0c;
+  --bg-secondary: #111115;
+  --bg-card: #15151a;
+  --bg-card-hover: #1b1b22;
+  --text-main: #f9f9fb;
+  --text-muted: #9e9ea7;
+  --text-dim: #63636e;
+  --gold-300: #dfba73;
+  --gold-400: #c5a059;
+  --gold-500: #b08d46;
+  --gold-600: #8c6e30;
+  --gold-gradient: linear-gradient(135deg, #eed08d 0%, #c5a059 50%, #94712d 100%);
+  --gold-glow: 0 0 25px rgba(197, 160, 89, 0.25);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-gold-subtle: rgba(197, 160, 89, 0.22);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+}
+
+/* Typography Utilities */
+.font-display {
+  font-family: 'Cinzel', Georgia, serif;
+  letter-spacing: 0.04em;
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #ffffff 10%, #edd39a 50%, #c5a059 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-accent-text {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Buttons and Accents */
+.btn-gold-primary {
+  background: var(--gold-gradient);
+  color: #0a0a0c;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 18px rgba(197, 160, 89, 0.2);
+}
+
+.btn-gold-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(197, 160, 89, 0.35);
+  filter: brightness(1.08);
+}
+
+.btn-gold-outline {
+  border: 1px solid var(--border-gold-subtle);
+  background: rgba(255, 255, 255, 0.02);
+  color: #fcfbfa;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+}
+
+.btn-gold-outline:hover {
+  border-color: var(--gold-400);
+  background: rgba(197, 160, 89, 0.08);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Luxury Card Styles */
+.luxury-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.luxury-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.3), transparent);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.luxury-card:hover {
+  border-color: var(--border-gold-subtle);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+}
+
+.luxury-card:hover::before {
+  opacity: 1;
+}
+
+/* Header Styles */
+#main-header {
+  transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease, padding 0.3s ease;
+}
+
+#main-header.scrolled {
+  background-color: rgba(10, 10, 12, 0.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Image Hover Zoom */
+.image-zoom-container {
+  overflow: hidden;
+}
+
+.image-zoom-container img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.7s ease;
+}
+
+.image-zoom-container:hover img {
+  transform: scale(1.05);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #23232b;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-600);
+}
+
+/* Modal Transitions */
+.modal-backdrop {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  transform: scale(0.96) translateY(12px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-backdrop.active .modal-content {
+  transform: scale(1) translateY(0);
+}
+
+/* WhatsApp Floating Badge Pulse */
+@keyframes goldPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.whatsapp-pulse {
+  animation: goldPulse 2.5s infinite;
+}
